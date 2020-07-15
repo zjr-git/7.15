@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         .banner {
+            width: 100%;
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bottom {
+            width: 100%;
+            text-align: center;
+            height: 15px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: auto;
+            bottom: 20px;
+        }
+
+        span {
+            display: inline-block;
+            width: 60px;
+            height: 2px;
+            background: rgba(255, 255, 255, 1);
+            cursor: pointer;
+            margin-right: 8px;
+            border-radius: 0;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <div class="bottom">
+            <span class="button" style="background: #2691fd;"></span>
+            <span class="button"></span>
+            <span class="button"></span>
+            <span class="button"></span>
+            <span class="button"></span>
+            <span class="button"></span>
+        </div>
+
+        <div class="img">
+            <img src="./imgs/1.jpg" alt="" class="picture">
+            <img src="./imgs/2.jpg" alt="" class="picture">
+            <img src="./imgs/3.png" alt="" class="picture">
+            <img src="./imgs/4.jpg" alt="" class="picture">
+            <img src="./imgs/5.jpg" alt="" class="picture">
+            <img src="./imgs/6.png" alt="" class="picture">
+            
+        </div>
+    </div>
+        <script>
+           
+
+
+    
+        window.onload=function(){
+        var buttons=document.querySelectorAll(".button");
+        var imgs=document.querySelectorAll(".picture");
+        //滚动
+        var num=0;
+        setInterval(function(){
+            num++;
+            if(num>buttons.length){
+                num=0;
+            }
+            for(let j=0;j<imgs.length;j++){
+                
+                imgs[j].style.display="none";
+                buttons[j].style.backgroundColor="#ccc"
+                buttons[j].style.display="#000"
+
+            }
+            buttons[num].style.backgroundColor="#2691fd"
+            imgs[num].style.display="block"
+            buttons[num].style.display="#000"
+        },3000);
+        //点击
+        for(let i=0;i<buttons.length;i++){
+            buttons[i].onclick=function(){
+                
+                for(var j=0;j<imgs.length;j++){
+                    buttons[j].style.backgroundColor="#ccc"
+                imgs[j].style.display="none";
+                buttons[j].style.display="#000"
+            }
+           
+            imgs[i].style.display="block"
+            buttons[i].style.backgroundColor="#2691df"
+
+         }
+        }
+        }
+        </script>
+</body>
+</html>
